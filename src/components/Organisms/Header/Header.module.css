@@ -1,0 +1,47 @@
+.headerContainer{
+    display: flex;    
+    /* background: #18181b; */
+    color: #18181b;
+    padding: 12px 40px;
+    justify-content: space-between;    
+    align-items: center;
+    overflow: hidden;
+    border-bottom: solid 1px #E5E8EB;
+}
+
+.title{
+    font-family: "Lobster", serif;    
+    color: #18181b;;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.items{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.exit{    
+    margin: 0;
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 10rem;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.exit:hover{
+    color: #333;
+    background: #f0f0f0;
+}
+
+@media screen and (max-width: 800px){
+    .headerContainer{
+        flex-direction: column;
+        gap: 10px;
+    }
+    .items{
+        flex-wrap: wrap;        
+        justify-content: center;
+    }
+}

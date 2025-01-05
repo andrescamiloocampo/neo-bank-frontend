@@ -1,0 +1,129 @@
+.modal {    
+    max-width: 800px;    
+    background: #fff;
+    min-width: 400px;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;    
+}
+
+@media (max-width: 600px) {
+    .modal {
+        width: 100%;
+        min-width: 100px;        
+        margin: 1.5rem;
+    }
+}
+.modal_header{
+    display: flex;
+    padding-bottom: 1.5rem;    
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.title{
+    font-weight: 500;
+    font-size: 1.25rem;
+    font-family: "Inter",sans-serif;
+    margin: 0;
+}
+
+.icon_container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background: #dbeafe;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input_container{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input_label{
+    margin: 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.modal_input{
+    padding: 0.5rem 0.75rem;
+    background: white;
+    border: solid 1px #d1d5db;
+    font-size: 1rem;
+    color: #09090B;    
+    border-radius: 0.4rem;    
+}
+
+.input_icon{
+    display: flex;
+    align-items: center;
+    width: 100%;    
+    position: relative;
+}
+
+.input_icon input{    
+    width: 100%;    
+    padding-left: 1.5rem;
+}
+
+.money{
+    position: absolute;
+    left: 0.3rem;
+    top: 0.35rem;    
+    color: #8c8f92;
+}
+
+.buttons_container{
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding-top: 1.5rem;
+}
+
+.buttons_container button{
+    flex: 1;
+}
+
+.cancel{
+    background-color: white;
+    color: black;
+    font-family: "Inter",sans-serif;
+    border: solid 1px #d1d5db;
+}
+
+.cancel:hover{
+    background-color: #f3f4f6;
+    border: solid 1px #d1d5db;
+}
+
+.create{
+    background-color: #6366f1;
+    color: white;
+    font-family: "Inter",sans-serif;
+    border: none;
+}
+
+.create:hover{
+    background-color: #4f46e5;
+}
+
+.current_balance{
+    margin: 0;
+    padding-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.current_balance span{
+    font-weight: lighter;
+}

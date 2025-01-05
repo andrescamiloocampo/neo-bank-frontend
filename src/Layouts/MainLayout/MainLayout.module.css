@@ -1,0 +1,8 @@
+.mainContainer{
+    width: 100%;            
+}
+
+.children{
+    color: black;    
+    padding: 10px;    
+}

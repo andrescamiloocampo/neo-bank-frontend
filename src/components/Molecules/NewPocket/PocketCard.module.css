@@ -1,0 +1,87 @@
+.pocketCard{
+    display: flex;
+    flex-direction: column;
+    /* padding: 1rem; */
+    max-width: 300px; 
+    min-width: 200px;    
+    flex: 1 1 200px;
+    border-radius: 0.5rem;    
+    color: #18181b;
+    cursor: pointer;    
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.content_text{
+    display: flex;
+    flex-direction: column;
+}
+
+.pocketCard:hover {
+    transform: translateY(-5px);     
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;    
+    height: 150px;
+    border: dashed 3px #D1DBE8;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.header img{
+    object-fit: cover;
+    object-position: top;
+}
+
+.content{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    font-size: 2.5rem;
+    font-size: 1rem;
+    margin: 0;
+    font-weight: 500;    
+    font-family: "Inter", serif;
+}
+
+.amount{
+    font-weight: bold;
+    font-size: 14px;
+    font-weight: 500;
+    color: #A1824A;
+    margin: 0;
+}
+
+
+.managePocket{  
+    display: flex;  
+    align-items: center;
+    justify-content: center ;
+    width: fit-content;    
+    height: fit-content;
+    background: rgb(235, 232, 232);    
+    padding: 0.2rem;
+    border-radius: 2rem;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.managePocket:hover {
+    background-color: #d1d1d1;
+
+}
+
+@media screen and (max-width: 740px){
+    .pocketCard{
+        width: 100%;
+        min-width: 100px;
+    }
+}

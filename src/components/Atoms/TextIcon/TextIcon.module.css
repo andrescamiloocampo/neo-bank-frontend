@@ -1,0 +1,24 @@
+.textIconContainer {
+    display: flex;
+    gap: 5px;
+    height: fit-content;
+    padding: 6px;
+    border-radius: 8px;
+    color: #18181b;    
+    align-items: center;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.content {
+    margin: 0;
+}
+
+.textIconContainer:hover {
+    color: #333;
+    background: #f0f0f0;
+}
+
+.active{
+    color: #333;
+    background: #f0f0f0;
+}

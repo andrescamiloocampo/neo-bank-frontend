@@ -1,0 +1,38 @@
+.pockets{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;    
+}
+
+.pocketsCount{
+    margin: 0;
+    color: #A1824A;
+    font-size: 1rem;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+    gap: 0.5rem;    
+}
+
+.pocketsContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 10rem;    
+}
+
+.title{
+    font-family: "Inter", serif;    
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+@media screen and (max-width: 740px){
+    .pocketsContainer{
+        padding: 0 2rem;
+    }
+}

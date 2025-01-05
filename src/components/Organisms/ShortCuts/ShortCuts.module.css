@@ -1,0 +1,38 @@
+.accountContainer {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;    
+    cursor: pointer;
+    flex: 1;    
+}
+
+.accountHeader {
+    background: #f4f4f5;
+    border-radius: 10px 10px 0 0;
+    display: flex;    
+}
+
+.title {
+    font-family: "Markazi Text", serif;
+    font-size: 36px;
+    margin: 0;
+}
+
+.balance {
+    font-weight: 700;
+    font-size: 28px;
+    font-family: "Markazi Text", serif;
+    margin: 0;
+    padding: 0;
+}
+
+.balance span {
+    font-weight: normal;
+}
+
+.shortcutsContent {
+    display: flex;    
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}

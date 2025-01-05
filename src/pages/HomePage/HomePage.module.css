@@ -1,0 +1,59 @@
+.homePageContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 10rem;
+}
+
+.title{
+    font-family: "Inter", serif;
+    font-size: 2rem;
+}
+
+.dynamicKey{
+    display: flex;
+    flex-direction: column;
+}
+
+.key{    
+    font-family: "Inter",serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.account_title{
+    margin: 0;
+    font-weight: bold;
+    font-family: "Inter", serif;
+    font-size: 1.12rem;
+}
+
+.services{
+    width: 100%;
+    display: flex;    
+    gap: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.access{
+    font-family: "Inter",serif;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.validation{
+    display: flex;
+    padding-top: 10px;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px){
+    .services{
+        flex-direction: column;
+    }
+
+    .homePageContainer{        
+        padding: 0 1rem;
+    }
+}

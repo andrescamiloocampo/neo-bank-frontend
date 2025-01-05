@@ -1,0 +1,39 @@
+.notFoundContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 1rem;
+}
+
+.title{
+    margin: 0;
+    font-family: "Inter",sans-serif;
+    font-weight: bold;
+    font-size: 3.75rem;
+}
+
+.subtitle{
+    margin: 0;
+    font-family: "Inter",sans-serif;
+    color: #1f2937;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.body{
+    margin: 0;
+    color: #1f2937;    
+}
+
+.ghost{
+    padding: 2rem 0;
+    animation: ghostMove 3s infinite;
+}
+
+@keyframes ghostMove {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(20px); }
+    100% { transform: translateY(0); }
+}

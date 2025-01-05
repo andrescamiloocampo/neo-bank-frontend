@@ -1,0 +1,48 @@
+.clickableTabContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+    color: #18181b;
+    border: solid 1px #E8EDF2;
+    padding: 16px;
+    gap: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    min-width: 300px;
+    flex: 1;    
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.clickableTabContainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #18181b;
+}
+
+.content{
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: "Inter",serif;
+    color: #0D141C;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+}
+
+.description{
+    margin: 0;
+    font-size: 14px;
+    color: #4F7396;
+}
+
+@media screen and (max-width: 700px){
+    .clickableTabContainer{
+        width: 100%;
+        max-width: 100%;
+    }
+}
