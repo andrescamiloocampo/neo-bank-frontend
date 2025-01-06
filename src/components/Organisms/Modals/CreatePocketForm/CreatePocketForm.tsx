@@ -3,20 +3,18 @@ import styles from "./CreatePocketForm.module.css";
 import { Portal } from "../../../Atoms";
 import { IoWalletOutline } from "react-icons/io5";
 import { CreatePocketFormModel } from "./CreatePocketForm.model";
-import useUserStore from "../../../../store/user/userStore";
 import { formatCurrency } from "../../../../utils";
 import { PocketModel } from "../../../../models/User.model";
 import { ToastContainer,toast } from "react-toastify";
 import { infoLogs } from "../../../../utils";
 import { createPocket } from "../../../../server";
+import useBalanceStore from "../../../../store/balance/currentBalance.store";
 
 export const CreatePocketForm = ({
   show,
   onClose,
-}: CreatePocketFormModel): ReactElement => {
-  const user = useUserStore((state) => state.user);
-  const currentBalance = user?.balance?.[0]?.totalAmount ?? 0;
-  const balanceId = user?.balance?.[0]?.id ?? "";
+}: CreatePocketFormModel): ReactElement => {  
+  const currentBalance = useBalanceStore((state)=>state.currentBalance) ?? {totalAmount:0,id: ''};  
   const error = () => toast.error(infoLogs[0].message);
   const exception = () => toast.error("Could not create pocket");
 
@@ -31,13 +29,13 @@ export const CreatePocketForm = ({
         id: "",        
     };
 
-    if(pocketData.sub_amount > currentBalance) {
+    if(pocketData.sub_amount > currentBalance?.totalAmount) {
       error();
       return;
     }
 
-    if(pocketData.sub_amount < currentBalance && pocketData.name){
-        const response = await createPocket(pocketData,balanceId) ?? null;
+    if(pocketData.sub_amount < currentBalance?.totalAmount && pocketData.name){
+        const response = await createPocket(pocketData,currentBalance.id) ?? null;
         if(!response) {
           exception();
           return;
@@ -52,7 +50,7 @@ export const CreatePocketForm = ({
     <Portal show={show}>
       <form className={styles.modal} onSubmit={handleCreatePocket}>
         <ToastContainer />
-        <p className={styles.current_balance}>Current balance: <span>${formatCurrency(currentBalance)}</span></p>        
+        <p className={styles.current_balance}>Current balance: <span>${formatCurrency(currentBalance?.totalAmount)}</span></p>        
         <div className={styles.modal_header}>
           <div className={styles.icon_container}>
             <IoWalletOutline size={24} color="#2563eb" />

@@ -13,8 +13,7 @@ export const PocketCard = ({
   setEditPocket
 }: PocketCardModel): ReactElement => {
 
-  const manageEdit = () => {
-    console.log("Edit pocket");
+  const manageEdit = () => {        
     setEditPocket(true);
     setPocketId(id);    
   }

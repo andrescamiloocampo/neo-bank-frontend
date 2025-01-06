@@ -19,11 +19,11 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="*" element={<NotFoundPage/>} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
-        <Route path="auth" element={<AuthLayout/>}>
-          <Route path="login" index element={<LoginPage />}/>                         
-          <Route path="register" index element={<RegisterPage/>}/>                         
+        <Route path="auth" element={<AuthLayout />}>
+          <Route path="login" index element={<LoginPage />} />
+          <Route path="register" index element={<RegisterPage />} />
         </Route>
         <Route path="/dashboard" element={<MainLayout />}>
           <Route index element={<App />} />

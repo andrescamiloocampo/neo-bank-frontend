@@ -16,6 +16,8 @@ export const getPocketById = async (
       }
     );
     if (!response.ok) throw new Error(errorLogs[1].message);
+    // const resp = await response.json();
+    // console.log('Aqui ven aqui:',resp);
     return await response.json();
   } catch (error) {
     throw new Error(`${(errorLogs[0].message, error)}`);

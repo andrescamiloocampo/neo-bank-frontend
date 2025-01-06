@@ -6,14 +6,16 @@ import { CreatePocketForm } from "../../components/Organisms";
 import useUserStore from "../../store/user/userStore";
 import { getUser } from "../../server";
 import { UpdatePocketForm } from "../../components/Organisms/Modals";
+import useBalanceStore from "../../store/balance/currentBalance.store";
 
-export default function PocketsPage(): ReactElement {
-  const user = useUserStore((state) => state.user);
+export default function PocketsPage(): ReactElement {  
   const setUser = useUserStore((state) => state.setUser);
   const [createPocket, setCreatePocket] = useState(false);
   const [updatePocket, setUpdatePocket] = useState(false);
   const [pocketId, setPocketId] = useState("");
-  const pocketsCount = user?.balance?.[0]?.pockets?.length;
+  const currentBalance = useBalanceStore((state)=>state.currentBalance);
+  const setCurrentBalance = useBalanceStore((state)=>state.setCurrentBalance);
+  const pocketsCount = currentBalance?.pockets?.length;
 
   const manageCreatePocket = () => {
     setCreatePocket(!createPocket);
@@ -32,9 +34,10 @@ export default function PocketsPage(): ReactElement {
       const response =
         (await getUser(sessionStorage.getItem("username") ?? "")) ?? null;
       if (!response) return;
-      setUser(response);
+      setUser(response);      
+      setCurrentBalance(response.balance[Number(localStorage.getItem('balance-index') ?? 0)])
     };
-    updateUserData();
+    updateUserData();    
   }, [createPocket,updatePocket]);
 
   return (
@@ -47,15 +50,21 @@ export default function PocketsPage(): ReactElement {
       />
       <div className={styles.content}>
         <h1 className={styles.title}>Your pockets</h1>
+        {pocketsCount === 1 && (
+        <p className={styles.pocketsCount}>
+          You have {pocketsCount} active pocket
+        </p>
+        )}
+        {pocketsCount != 1 && (
         <p className={styles.pocketsCount}>
           You have {pocketsCount} active pockets
         </p>
+        )}
       </div>
 
       <div className={styles.pockets}>
-        {user &&
-          user.balance &&
-          user.balance[0].pockets?.map((pocket) => (
+        {currentBalance &&          
+          currentBalance.pockets?.map((pocket) => (
             <PocketCard
               id={pocket.id}
               key={pocket.id}

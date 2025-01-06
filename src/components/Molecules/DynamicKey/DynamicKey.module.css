@@ -56,8 +56,7 @@
     width: 80%;
     display: flex;
     justify-content: start;
-    align-items: center;            
-    padding-top: 10px;
+    align-items: center;                
 }
 
 .keyContainer{
@@ -80,4 +79,26 @@
     font-family: "Inter",serif;
     font-weight: 700;
     font-size: 16px;
+}
+
+.select_container{
+    padding: 0.8rem 0;
+}
+
+.select_balance{
+    border: solid 1px gainsboro;
+    border-radius: 0.5rem;
+    background: white;
+    color: black;
+    padding: 0.7rem 0.5rem;
+    cursor: pointer;
+    font-family: "Inter", serif;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.select_balance:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    outline: none;
 }

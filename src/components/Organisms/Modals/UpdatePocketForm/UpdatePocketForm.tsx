@@ -1,59 +1,67 @@
 import styles from './UpdatePocketForm.module.css';
-import { FormEvent,type ReactElement } from "react";
+import { FormEvent, useEffect, useState, type ReactElement } from "react";
 import { Portal } from "../../../Atoms";
 import { IoWalletOutline } from "react-icons/io5";
 import { CreatePocketFormModel } from "./UpdatePocketForm.model";
-import useUserStore from "../../../../store/user/userStore";
 import { formatCurrency } from "../../../../utils";
 import { PocketModel } from "../../../../models/User.model";
-import { ToastContainer,toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { infoLogs } from "../../../../utils";
 import { updatePocket } from '../../../../server/pockets/updatePocket';
+import { getPocketById } from '../../../../server/pockets/getPocketById';
+import useBalanceStore from '../../../../store/balance/currentBalance.store';
 
 export const UpdatePocketForm = ({
   show,
   onClose,
   pocketId
-}: CreatePocketFormModel): ReactElement => {
-  const user = useUserStore((state) => state.user);
-  const currentBalance = user?.balance?.[0]?.totalAmount ?? 0;
-  const balanceId = user?.balance?.[0]?.id ?? "";
+}: CreatePocketFormModel): ReactElement => {  
+  const currentBalance = useBalanceStore((state)=>state.currentBalance) ?? {totalAmount:0,id: ''};      
+  const [name, setName] = useState('');
+  const [amount, setAmount] = useState(0);
   const error = () => toast.error(infoLogs[0].message);
-  const exception = () => toast.error("Could not create pocket");    
-    
-  const handleCreatePocket = async (event: FormEvent<HTMLFormElement>) => {
+  const exception = () => toast.error("Could not create pocket");
 
+  useEffect(() => {
+    const getPocket = async () => {
+      const response = await getPocketById(pocketId);      
+      setName(response?.name ?? '');
+      setAmount(response?.sub_amount ?? 0);
+    }
+    if (show) {
+      getPocket();
+    }
+  }, [show, pocketId]);
+
+  const handleUpdatePocket = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
 
-    const pocketData:PocketModel = {
-        name: data.get("name") as string,
-        sub_amount: Number(data.get("amount") ?? 0) as number,
-        id: pocketId,        
+    const pocketData: PocketModel = {
+      name,
+      sub_amount: amount,
+      id: pocketId,
     };
 
-    if(pocketData.sub_amount > (currentBalance + pocketData.sub_amount)) {
+    if (amount > currentBalance.totalAmount) {
       error();
       return;
     }
 
-    if((pocketData.sub_amount < currentBalance + pocketData.sub_amount) && pocketData.name){
-        const response = await updatePocket(pocketData,balanceId) ?? null;
-        if(!response) {
-          exception();
-          return;
-        }
-        console.log(response);
-        onClose();
+    if (amount < currentBalance.totalAmount && pocketData.name != '') {
+      const response = await updatePocket(pocketData, currentBalance.id) ?? null;
+      if (!response) {
+        exception();
+        return;
+      }
+      onClose();
     }
-
   };
 
   return (
     <Portal show={show}>
-      <form className={styles.modal} onSubmit={handleCreatePocket}>                
+      <form className={styles.modal} onSubmit={handleUpdatePocket}>        
         <ToastContainer />
-        <p className={styles.current_balance}>Current balance: <span>{formatCurrency(currentBalance)}$</span></p>        
+        <p className={styles.current_balance}>Current balance: <span>{formatCurrency(currentBalance.totalAmount)}$</span></p>
         <div className={styles.modal_header}>
           <div className={styles.icon_container}>
             <IoWalletOutline size={24} color="#2563eb" />
@@ -70,6 +78,8 @@ export const UpdatePocketForm = ({
               required
               type="text"
               name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className={styles.modal_input}
               placeholder="e.g., Savings, Travel, Emergency Fund"
             />
@@ -85,6 +95,8 @@ export const UpdatePocketForm = ({
                 required
                 type="number"
                 name="amount"
+                value={amount}
+                onChange={(e) => setAmount(Number(e.target.value))}
                 min={0}
                 step={"1"}
                 className={styles.modal_input}
@@ -95,10 +107,10 @@ export const UpdatePocketForm = ({
         </div>
 
         <div className={styles.buttons_container}>
-          <button className={styles.cancel} onClick={onClose}>
+          <button type="button" className={styles.cancel} onClick={onClose}>
             Cancel
           </button>
-          <button type={'submit'} className={styles.create}>Update pocket</button>
+          <button type="submit" className={styles.create}>Update pocket</button>
         </div>
       </form>
     </Portal>

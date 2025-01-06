@@ -1,7 +1,7 @@
 import { type ReactElement } from "react";
 import styles from './NotFoundPage.module.css';
 import { SlGhost } from "react-icons/sl";
-import { NavLink } from "react-router";
+import { NavLink } from "react-router-dom";
 
 export default function NotFoundPage():ReactElement{
     return (
