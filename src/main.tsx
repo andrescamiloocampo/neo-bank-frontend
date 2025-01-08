@@ -14,6 +14,7 @@ import LoginPage from "./pages/LoginPage/LoginPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 import PocketsPage from "./pages/PocketsPage/PocketsPage.tsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.tsx";
+import TransactionPage from "./pages/TransactionPage/TransactionPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -31,6 +32,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="pockets" element={<PocketsPage />} />
           <Route path="transactions" element={<div>Transacciones</div>} />
           <Route path="alerts" element={<div>Notificaciones</div>} />
+          <Route path="transfer" element={<TransactionPage/>}/>
           <Route path="settings" element={<div>Configuración</div>}>
             <Route path="security" element={<div>Seguridad</div>} />
           </Route>

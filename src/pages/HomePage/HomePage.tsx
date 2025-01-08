@@ -27,7 +27,7 @@ export default function HomePage (): ReactElement{
 
   return (
     <div className={styles.homePageContainer}>          
-      <h1 className={styles.title}>Good morning, {session.user.username}</h1>
+      <h1 className={styles.title}>Good morning, {user?.name}</h1>
       <div className={styles.services}>
         <p className={styles.account_title}>Account summary</p>                
         {user && user.balance && <Account balance={currentBalance?.totalAmount}/>}        

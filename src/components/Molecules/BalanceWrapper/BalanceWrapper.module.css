@@ -1,0 +1,109 @@
+.main_container{    
+    width: 100%;    
+}
+
+.balance_wrapper{
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;    
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border: solid 1px #e2e1e1;
+}
+
+.balance_wrapper:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);    
+}
+
+.pocket{
+    display: flex;
+    align-items: center;    
+    border: solid 1px #e2e1e1;
+    padding: 0 1rem;
+    border-radius: 1rem;
+}
+
+.pocket_icon{
+    display: flex;
+    background: #e2e1e1;
+    padding: 10px;
+    border-radius: 0.5rem;
+}
+
+.show_pockets{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    interpolate-size: allow-keywords;    
+    transition: height 0.3s ease;    
+    overflow: hidden;        
+    padding: 1rem 0;
+    height: auto;
+}
+
+.pockets_list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    interpolate-size: allow-keywords;    
+    transition: height 0.3s ease;    
+    overflow: hidden;        
+    padding: 0;
+    height: 0;
+}
+
+.pockets_title{
+    margin: 0;
+}
+
+.pocket_stat{
+    font-size: 1rem;    
+    font-weight: 300;
+    font-family: "Inter",sans-serif;    
+}
+
+.pocket_stat span{
+    font-weight: 500;
+}
+
+.pocket_slot{
+    display: flex;
+    flex-direction: column;    
+    list-style: none;
+    padding: 1rem;
+}
+
+.balance_description{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon_container{
+    background: #e2e1e1;
+    display: flex;
+    padding:10px;
+    border-radius: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+}
+
+.name{
+    font-size: 1rem;
+    font-family: "Inter",sans-serif;
+    font-weight: bold;
+}
+
+.amount{
+    font-size: 0.8rem;
+    color: #a1a1a1;
+}
+
+.balance_amount{
+    font-size: 1rem;
+    font-family: "Inter",sans-serif;
+    font-weight: 600;
+}
