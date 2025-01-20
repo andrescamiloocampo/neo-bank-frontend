@@ -1,0 +1,33 @@
+.confirm_transaction{
+    display: flex;
+    flex-direction: column;
+    background: #f0f2f5;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    max-width: 500px;
+}
+
+.title{
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.separator{
+    background: #cecfd1;
+    height: 1px;
+    margin: 0.5rem 0;
+}
+
+.transaction_label{
+    display: flex;
+    justify-content: space-between;    
+    width: 100%;
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.transaction_label > span{
+    font-weight: 500;
+    color: #4b5563;
+}

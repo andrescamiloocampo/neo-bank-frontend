@@ -8,10 +8,12 @@ export interface UserModel {
     balance?: BalanceModel[];
 }
 
+export type AccountType ='Savings Account'|'Current Account'|'Credit Card'|'Pocket'
+
 export interface BalanceModel {
     id: string;
     totalAmount: number;
-    accountType: string;
+    accountType: AccountType;
     pockets?: PocketModel[];
 }
 

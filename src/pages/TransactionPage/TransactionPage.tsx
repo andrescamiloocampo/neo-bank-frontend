@@ -3,6 +3,7 @@ import styles from './TransactionPage.module.css';
 import { BalanceWrapper } from "../../components/Molecules/BalanceWrapper/BalanceWrapper";
 import useBalanceStore from "../../store/balance/currentBalance.store";
 import useUserStore from "../../store/user/userStore";
+import { NavLink } from "react-router";
 
 export default function TransactionPage():ReactElement{    
 
@@ -21,8 +22,10 @@ export default function TransactionPage():ReactElement{
             <p className={styles.welcome}>Here's what's happening with your money today.</p>
             </div>
 
-            <div className={styles.send_money}>
-            <button>Send money</button>        
+            <div className={styles.send_money}>            
+            <NavLink to={'/dashboard/transfer'} className={styles.send_button}>
+            Send money
+            </NavLink>
             </div>
 
             <div className={styles.accounts}>
@@ -34,8 +37,7 @@ export default function TransactionPage():ReactElement{
                     ))
                 }
                 </div>                
-            </div>
-
+            </div>            
         </div>
     )
 }

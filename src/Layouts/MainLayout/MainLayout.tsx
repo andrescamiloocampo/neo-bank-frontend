@@ -6,7 +6,7 @@ import {getSession} from '../../utils/session';
 
 export default function MainLayout(): ReactElement {
   const session = getSession();
-
+  
   if (!session.user.token) {
     return <Navigate to="/auth/login" replace />;
   }

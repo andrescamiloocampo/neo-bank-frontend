@@ -36,6 +36,12 @@
     flex-direction: column;
 }
 
+.shortcuts{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 .access{
     font-family: "Inter",serif;
     font-weight: bold;

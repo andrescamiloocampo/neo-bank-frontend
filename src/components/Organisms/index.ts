@@ -4,3 +4,6 @@ export { LoginForm } from "./LoginForm/LoginForm";
 export { CreatePocketForm } from "./Modals";
 export { RegisterForm } from "./RegisterForm/RegisterForm";
 export { ShortCuts } from "./ShortCuts/ShortCuts";
+export { BalanceSelector } from "./BalanceSelector/BalanceSelector";
+export { ReceiverSelector } from "./ReceiverSelector/ReceiverSelector";
+export { ConfirmTransaction } from "./ConfirmTransaction/ConfirmTransaction";

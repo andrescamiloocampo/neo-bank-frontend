@@ -1,0 +1,92 @@
+.receiver_container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.input_container{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 0.2rem;
+    width: 30%;
+}
+
+.label{
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.input{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    background: #F0F2F5;
+    border: none;
+    border-radius: 12px;
+    color: black;    
+}
+
+.text_area{
+    padding: 0.5rem 1rem;
+    height: 5rem;
+    resize: none;
+    font-size: 1rem;
+    font-family: "Inter",sans-serif;
+    background: #F0F2F5;
+    border: none;
+    border-radius: 12px;
+    color: black;    
+}
+
+.users_list{
+    display: flex;
+    flex-direction: column;    
+    width: fit-content;
+    padding: 1rem 0;
+    gap: 0.5rem;
+}
+
+.user_avatar{
+    width: 50px;
+    height: 50px;
+    background: black;
+    border-radius: 60px;
+}
+
+.user_card{
+    display: flex;
+    align-items: center;    
+    padding: 0.5rem 1rem;    
+    gap: 1rem;
+    border: solid 1px #e8edf2;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    min-width: 300px;
+    max-width: 400px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.user_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
+}
+
+.name{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.username{
+    font-size: 14px;
+    color: #637587;
+}
+
+.quantity_title{
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.quantity{
+    font-weight: 400;
+    font-size: 0.9rem;
+}

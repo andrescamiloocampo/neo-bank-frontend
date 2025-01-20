@@ -1,0 +1,132 @@
+.transfer_container{
+    padding: 1rem 10rem;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: "Inter",sans-serif;
+}
+
+.progress_controls{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.step{
+    font-size: 1rem;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    font-family: "Inter",sans-serif;
+}
+
+.step span{
+    font-weight: normal;
+}
+
+.balance_selection{
+    display: flex;
+    gap: 1rem;    
+}
+
+.balance_card{
+    padding: 0.5rem 1rem;
+    border: solid 1px #E8EDF2;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-radius: 0.5rem;
+}
+
+.selected{
+    background: lightblue;
+}
+
+.balance_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
+}
+
+.active_balance{
+    background: #000; 
+    color: white;
+    transition: background 0.3s ease, transform 0.3s ease, font-weight 0.3s ease;    
+    font-weight: 500;    
+}
+
+.switch_step{
+    padding: 0.2rem 1rem;
+    width: 10rem;
+    border-radius: 0.3rem;
+}
+
+.step_1{
+    display: flex;
+    flex-direction: column;    
+    gap: 0.5rem;
+    padding-top: 1rem;
+}
+
+.step_2{
+    display: flex;
+    flex-direction: column;           
+}
+
+.source{
+    font-weight: 600;            
+    padding: 1rem 0;
+}
+
+.amount_source{
+    border: solid 1px #E8EDF2;
+    width: fit-content;
+    min-width: 19rem;
+    padding: 0.8rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.amount_title{
+    font-weight: 500;
+    font-family: 'Inter',sans-serif;
+}
+
+.amount_total{
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.blocked{
+    cursor: not-allowed;
+    background: #c1aeae;    
+    color: #000;
+}
+
+.success_message{
+    font-weight: 600;
+}
+
+.regress{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;    
+}
+
+.go_back{
+    color: #2ba6ff;
+    cursor: pointer;
+}
+
+.go_back:hover{
+    text-decoration: underline;
+}
+
+@media screen and (max-width:750px){
+    .transfer_container{
+        padding: 1rem;
+    }
+
+    .balance_selection{
+        flex-direction: column;
+    }
+}

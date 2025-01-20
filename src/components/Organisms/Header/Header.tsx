@@ -13,6 +13,8 @@ export const Header = (): ReactElement => {
 
   const logout = ():void => {
     resetSession();
+    localStorage.clear();
+    sessionStorage.clear();
     window.location.reload();    
   }
   

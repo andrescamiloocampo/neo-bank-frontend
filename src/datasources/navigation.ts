@@ -37,7 +37,7 @@ export const navigationItems:NavigationM[] = [
 export const shortCuts:NavigationM[] = [
     {
         text:'Transfer',
-        href:'/dashboard/transfer',
+        href:'/dashboard/transactions_panel',
         icon: LuSquareArrowUpRight,
         body: 'Send money to friends and family'
     },
