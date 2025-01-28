@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
@@ -14,8 +14,10 @@ import LoginPage from "./pages/LoginPage/LoginPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 import PocketsPage from "./pages/PocketsPage/PocketsPage.tsx";
 import RegisterPage from "./pages/RegisterPage/RegisterPage.tsx";
+import SettingsPage from "./pages/SettingsPage/SettingsPage.tsx";
 import TransactionPage from "./pages/TransactionPage/TransactionPage.tsx";
 import Transfer from "./pages/Transfer/Transfer.tsx";
+import TransactionsHistoryPage from "./pages/TransactionsHistoryPage/TransactionsHistoryPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -31,11 +33,15 @@ createRoot(document.getElementById("root")!).render(
           <Route index element={<App />} />
           <Route path="test" element={<TestComponent />} />
           <Route path="pockets" element={<PocketsPage />} />
-          <Route path="transactions" element={<div>Transacciones</div>} />
+          <Route path="transactions" element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <TransactionsHistoryPage/>
+            </Suspense>
+          } />
           <Route path="alerts" element={<div>Notificaciones</div>} />
           <Route path="transactions_panel" element={<TransactionPage/>}/>            
           <Route path="transfer" element={<Transfer/>}/>          
-          <Route path="settings" element={<div>Configuración</div>}>
+          <Route path="settings" element={<SettingsPage />}>
             <Route path="security" element={<div>Seguridad</div>} />
           </Route>
         </Route>

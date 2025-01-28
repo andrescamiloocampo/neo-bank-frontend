@@ -23,7 +23,8 @@ export const BalanceWrapper = ({balance}:BalanceWrapperModel):ReactElement => {
 
             <p className={styles.balance_amount}>${formatCurrency(balance.totalAmount)}</p>            
         </div>
-                
+
+        {pockets.length > 0 && (
         <div className={`${toggle?styles.show_pockets:styles.pockets_list}`}>
             <h3 className={styles.pockets_title}>Pockets</h3>
             {pockets.map((pocket)=>(
@@ -46,6 +47,7 @@ export const BalanceWrapper = ({balance}:BalanceWrapperModel):ReactElement => {
                 </div>
             ))}            
         </div>                
+        )}        
 
         </div>
     );

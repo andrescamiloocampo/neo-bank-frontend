@@ -1,0 +1,127 @@
+.transactions_history_page{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination_controls{
+    width: 100%;
+    display: flex;    
+    margin-top: 2rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.current_page{
+    background: white;
+    border: solid 1px #7f8083;
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    border-radius: 10rem;
+    width: 35px;
+    height: 35px;
+}
+
+.pagination_button{
+    padding: 0.5rem;
+    display: flex;
+    border-radius: 10rem;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+.title_container{
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;    
+    gap: 1rem;
+}
+
+.title{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.description{
+    margin: 0;
+    font-size: 0.9rem;    
+    color: #4b5563;
+}
+
+.transactions_container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.tableContainer {    
+    border-radius: 10px;    
+    overflow-x: auto;    
+    width: 100%;
+    border: 1px solid #ddd;
+    border-bottom: none;
+  }
+  
+  .transactionsTable {
+    width: 100%;
+    border-collapse: collapse;    
+    text-align: left;
+  }
+  
+  .transactionsTable thead {        
+    font-weight: bold;
+  }
+  
+  .transactionsTable th,
+  .transactionsTable td {
+    padding: 12px 15px;    
+    border-bottom: 1px solid #ddd;
+  }
+  
+  
+  .transactionsTable tr:hover {
+    background-color: #f1f5f9;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .transactionsTable th {
+    color: #374151;
+    font-size: 14px;    
+    letter-spacing: 0.03em;
+  }
+  
+  .transactionsTable td {
+    font-size: 14px;
+    color: #4b5563;
+  }
+
+  .transactionsTable tbody tr{
+    padding: 2rem 0;
+  }
+  
+  .progressBar {
+    height: 8px;
+    border-radius: 4px;
+    background-color: #e5e7eb;
+    position: relative;
+  }
+  
+  .progressBar span {
+    display: block;
+    height: 100%;
+    border-radius: 4px;
+    background-color: #3b82f6;
+    width: 60%; 
+  }
+    

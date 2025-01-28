@@ -7,3 +7,4 @@ export { ShortCuts } from "./ShortCuts/ShortCuts";
 export { BalanceSelector } from "./BalanceSelector/BalanceSelector";
 export { ReceiverSelector } from "./ReceiverSelector/ReceiverSelector";
 export { ConfirmTransaction } from "./ConfirmTransaction/ConfirmTransaction";
+export { UserMenu } from "./UserMenu/UserMenu";

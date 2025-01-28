@@ -6,6 +6,7 @@ export interface UserModel {
     lastname: string;
     password?: string;
     balance?: BalanceModel[];
+    userImage?: string;
 }
 
 export type AccountType ='Savings Account'|'Current Account'|'Credit Card'|'Pocket'

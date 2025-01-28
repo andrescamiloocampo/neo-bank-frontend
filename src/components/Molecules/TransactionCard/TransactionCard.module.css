@@ -1,0 +1,50 @@
+.transaction_card{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 24px;
+    border: solid 1px #E8EDF2;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.transaction_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #18181b;
+}
+
+.transaction_card_header{
+    display: flex;
+    flex-direction: column;
+}
+
+.transaction_card_header_details{
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+}
+
+.title{
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+.detail{
+    display: flex;
+    align-items: center;
+    color: #6b7280;
+    font-size: 14px;
+    gap: 0.2rem;
+    text-align: center;
+}
+
+.separation_dot{
+    color: #d0d1d4;
+}
+
+.amount{
+    font-weight: 600;
+    font-size: 18px;
+}

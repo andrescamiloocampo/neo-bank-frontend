@@ -11,3 +11,11 @@ export interface TransactionModel{
     fromPocket: string;
     userId: string;
 }
+
+export interface TransactionResponsePagination{
+    paginationStats:{
+        totalRecords: number;
+        totalPages: number;
+    },
+    transactions: TransactionModel[]
+}
