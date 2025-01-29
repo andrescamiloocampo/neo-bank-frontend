@@ -1,10 +1,8 @@
 import { ReactElement, useState } from "react";
 import { useLocation, NavLink } from "react-router-dom";
-import { MdExitToApp } from "react-icons/md";
 
 import styles from "./Header.module.css";
 import { navigationItems } from "../../../datasources/navigation";
-import { resetSession } from "../../../utils/session";
 import useUserStore from "../../../store/user/userStore";
 
 import { TextIcon } from "../../Atoms/TextIcon/TextIcon";
@@ -15,14 +13,7 @@ export const Header = (): ReactElement => {
   const location = useLocation();
   const path = location.pathname;
   const user = useUserStore((state) => state.user);
-  const [open, setOpen] = useState(true);
-
-  const logout = (): void => {
-    resetSession();
-    localStorage.clear();
-    sessionStorage.clear();
-    window.location.reload();
-  };
+  const [open, setOpen] = useState(false);  
 
   return (
     <div className={styles.headerContainer}>
@@ -37,8 +28,7 @@ export const Header = (): ReactElement => {
             href={item.href}
             path={path}
           />
-        ))}
-        <MdExitToApp size={25} className={styles.exit} onClick={logout} />
+        ))}        
         <div onClick={() => setOpen(!open)} className={styles.user_profile}>
           <ImagePlacement image={user?.userImage} size="40" />
         </div>

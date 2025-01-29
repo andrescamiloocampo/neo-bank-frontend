@@ -5,8 +5,8 @@ import useUserStore from "../../../store/user/userStore";
 import { ImagePlacement } from "../../Atoms/ImagePlacement/ImagePlacement";
 import { NavLink } from "react-router";
 import { IoNotifications, IoSettingsSharp } from "react-icons/io5";
-import { CiLogout } from "react-icons/ci";
 import { RiLogoutBoxLine } from "react-icons/ri";
+import { Logout } from "../../../utils";
 
 export const UserMenu = ({ setOpen }: UserMenuModel): ReactElement | null => {
   const user = useUserStore((state) => state.user);
@@ -20,7 +20,7 @@ export const UserMenu = ({ setOpen }: UserMenuModel): ReactElement | null => {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
         setOpen(false);
       }
     };
@@ -42,7 +42,7 @@ export const UserMenu = ({ setOpen }: UserMenuModel): ReactElement | null => {
         <div className={styles.functionality}>          
           <NavLink to={'settings'} className={styles.option}><IoSettingsSharp/> Settings</NavLink>
           <div className={styles.option}><IoNotifications/> Notifications</div>
-          <button className={styles.logout_button}><RiLogoutBoxLine/> Log out</button>
+          <button className={styles.logout_button} onClick={Logout}><RiLogoutBoxLine/>Log out</button>
         </div>
       </div>
     </div>

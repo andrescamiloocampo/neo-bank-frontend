@@ -17,3 +17,10 @@ export const getSession = ():SessionModel => {
 export const resetSession = ():void => {
     sessionStorage.clear();
 }
+
+export const Logout = ():void => {
+    resetSession();
+    localStorage.clear();
+    sessionStorage.clear();
+    window.location.reload();
+}

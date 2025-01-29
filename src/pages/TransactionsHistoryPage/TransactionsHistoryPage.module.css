@@ -125,3 +125,8 @@
     width: 60%; 
   }
     
+  @media screen and (max-width:900px){
+    .transactions_history_page{
+      padding: 0 2rem;
+    }
+  }

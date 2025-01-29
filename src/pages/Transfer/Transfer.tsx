@@ -19,6 +19,9 @@ import { BalanceModel } from "../../models/User.model";
 import { TransactionModel } from "../../models";
 import { transferMoney } from "../../server/balance/transferMoney";
 import { FaArrowLeft } from "react-icons/fa";
+import { Notify } from "../../server/websockets/notificationWS";
+import { stompClient } from "../../server/websockets/stompClient";
+
 
 export default function Transfer(): ReactElement {
   const steps = 3;
@@ -27,7 +30,7 @@ export default function Transfer(): ReactElement {
     "Insert transaction data",
     "Confirm transaction",
   ];
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
   const [currentStep, setCurrentStep] = useState(1);
   const balance = useBalanceStore((state) => state.balance);
   const currentBalance = useBalanceStore((state) => state.currentBalance);
@@ -103,8 +106,9 @@ export default function Transfer(): ReactElement {
         fromAccount.accountType ?? "",
         transactionData
       );
-      setSuccessMessage("Transaction successful!");
-      console.log(response);
+      setSuccessMessage("Transaction successful!");            
+      Notify(stompClient,`${user?.username} sent money`);
+      console.log(response);      
     } catch (error) {
       setSuccessMessage("Transaction failed. Please try again.");
       console.error(error);

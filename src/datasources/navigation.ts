@@ -27,11 +27,7 @@ export const navigationItems:NavigationM[] = [
     {
         text: 'Notifications',
         href: '/dashboard/alerts'
-    },
-    {
-        text: 'Settings',
-        href: '/dashboard/settings'
-    },
+    }    
 ]
 
 export const shortCuts:NavigationM[] = [
