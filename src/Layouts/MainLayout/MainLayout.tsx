@@ -4,30 +4,39 @@ import { Header } from "../../components/Organisms";
 import { Outlet, Navigate } from "react-router";
 import { getSession } from "../../utils/session";
 import { stompClient } from "../../server/websockets/stompClient";
-import { connectToNotification } from "../../server/websockets/notificationWS";
+import { connectToNotifications } from "../../server/websockets/notificationWS";
 import { NotificationModel } from "../../models";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function MainLayout(): ReactElement {
   const session = getSession();
-  const [lastNotification,setLastNotification] = useState<NotificationModel | null>(null);
+  const [notifications,setNotifications] = useState<NotificationModel[]>([]);  
 
-  useEffect(() => {
-    connectToNotification((notification)=>{
-      setLastNotification(notification);
-      console.log(lastNotification);
-    });
+  useEffect(()=>{
+    connectToNotifications({
+      username: session.user.username ?? '',
+      onMessageReceived: (notification) =>{
+        console.log('Aqui estoy:',notification)
+        setNotifications(prev => [...prev,notification]);
+        console.log(notifications);
+        toast(notification.message);
+      }      
+    })
 
     return () => {
-      stompClient.deactivate();
-    };
-  }, []);
+      if(stompClient.active)
+        stompClient.deactivate();
+    }
+  },[]);
 
+  
   if (!session.user.token) {
     return <Navigate to="/auth/login" replace />;
   }
 
   return (
-    <div className={styles.mainContainer}>      
+    <div className={styles.mainContainer}>                  
+      <ToastContainer />
       <Header />
       <div className={styles.children}>
         <Outlet />

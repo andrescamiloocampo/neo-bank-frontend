@@ -12,7 +12,7 @@ export default function AuthLayout(): ReactElement {
   }
 
   return (
-    <div className={styles.main_container}>      
+    <div className={styles.main_container}>            
       <Outlet />
     </div>
   );

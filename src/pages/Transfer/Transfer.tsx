@@ -19,7 +19,7 @@ import { BalanceModel } from "../../models/User.model";
 import { TransactionModel } from "../../models";
 import { transferMoney } from "../../server/balance/transferMoney";
 import { FaArrowLeft } from "react-icons/fa";
-import { Notify } from "../../server/websockets/notificationWS";
+import { transactionNotification } from "../../server/websockets/notificationWS";
 import { stompClient } from "../../server/websockets/stompClient";
 
 
@@ -106,9 +106,11 @@ export default function Transfer(): ReactElement {
         fromAccount.accountType ?? "",
         transactionData
       );
-      setSuccessMessage("Transaction successful!");            
-      Notify(stompClient,`${user?.username} sent money`);
+
+      setSuccessMessage("Transaction successful!");                  
+      transactionNotification(stompClient, user?.username ?? "", toAccount.username ?? "", toAccount.amount?.toString() ?? '0');
       console.log(response);      
+
     } catch (error) {
       setSuccessMessage("Transaction failed. Please try again.");
       console.error(error);
@@ -127,7 +129,7 @@ export default function Transfer(): ReactElement {
       <NavLink to={'/dashboard/transactions_panel'} className={styles.regress}>
         <FaArrowLeft/>
         Go back
-      </NavLink>
+      </NavLink>      
       <ToastContainer />
       <p className={styles.step}>
         Step {currentStep}: <span>{stepPhrases[currentStep - 1]}</span>
