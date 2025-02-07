@@ -103,7 +103,7 @@ export default function Transfer(): ReactElement {
     try {
       const response = await transferMoney(
         toAccount.username ?? "",
-        fromAccount.accountType ?? "",
+        currentBalance?.accountType ?? "Savings Account",
         transactionData
       );
 
@@ -125,7 +125,7 @@ export default function Transfer(): ReactElement {
   },[])
   
   return (
-    <div className={styles.transfer_container}>
+    <div className={styles.transfer_container}>      
       <NavLink to={'/dashboard/transactions_panel'} className={styles.regress}>
         <FaArrowLeft/>
         Go back

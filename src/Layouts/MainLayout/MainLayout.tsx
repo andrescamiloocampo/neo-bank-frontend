@@ -7,6 +7,7 @@ import { stompClient } from "../../server/websockets/stompClient";
 import { connectToNotifications } from "../../server/websockets/notificationWS";
 import { NotificationModel } from "../../models";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function MainLayout(): ReactElement {
   const session = getSession();
@@ -15,11 +16,10 @@ export default function MainLayout(): ReactElement {
   useEffect(()=>{
     connectToNotifications({
       username: session.user.username ?? '',
-      onMessageReceived: (notification) =>{
-        console.log('Aqui estoy:',notification)
+      onMessageReceived: (notification) =>{        
         setNotifications(prev => [...prev,notification]);
         console.log(notifications);
-        toast(notification.message);
+        toast(notification.message);        
       }      
     })
 

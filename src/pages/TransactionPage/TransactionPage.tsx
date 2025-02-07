@@ -11,7 +11,7 @@ export default function TransactionPage():ReactElement{
     const user = useUserStore((state)=>state.user);
 
     return(
-        <div className={styles.transaction_page}>
+        <div className={styles.transaction_page}>            
             <div className={styles.banner}>
                 <img src="/banner.jpg" alt="" className={styles.banner_image}/>
             </div>

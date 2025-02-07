@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { UpdateUserPhoto } from "../../../server";
 import useUserStore from "../../../store/user/userStore";
+import styles from './UploadWidget.module.css';
 
 export default function UploadWidget() {
   const cloudinaryRef = useRef();
@@ -28,5 +29,5 @@ export default function UploadWidget() {
     );
   }, []);
 
-  return <button onClick={() => widgetRef.current.open()}>Upload</button>;
+  return <button onClick={() => widgetRef.current.open()} className={styles.upload_button}>Update picture</button>;
 }
